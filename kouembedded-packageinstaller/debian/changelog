@@ -1,0 +1,29 @@
+kouembedded-packageinstaller (1.3) trusty; urgency=medium
+
+  * gdb-arm-none-eabi kurulum sorununu gidermek icin --force-overwrite eklendi
+
+ -- taner <taner@debian>  Mon, 15 Feb 2016 22:55:33 +0200
+
+kouembedded-packageinstaller (1.2) trusty; urgency=medium
+
+  * sistem programlama dersi eklendi
+
+ -- taner <taner@debian>  Mon, 15 Feb 2016 21:12:26 +0200
+
+kouembedded-packageinstaller (1.1) trusty; urgency=medium
+
+  * guncelleme button eklendi
+
+ -- Taner Guven <tanerguven@gmail.com>  Wed, 16 Sep 2015 12:56:08 +0000
+
+kouembedded-packageinstaller (1.0-2) trusty; urgency=medium
+
+  * package name changed && updates
+
+ -- Taner Guven <tanerguven@gmail.com>  Wed, 16 Sep 2015 11:34:44 +0000
+
+embeddedkou-packageinstaller (20150916.0011-1) trusty; urgency=low
+
+  * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>
+
+ -- Taner Guven <tanerguven@gmail.com>  Tue, 15 Sep 2015 21:18:51 +0000

@@ -1,0 +1,10 @@
+
+[Desktop Entry]
+Encoding=UTF-8
+Name=KOU Eclipse
+GenericName=KOU Eclipse
+Icon=emblem-colors-blue
+Terminal=false
+Type=Application
+Categories=Development;IDE;
+Exec=kouembedded-run-eclipse

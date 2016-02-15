@@ -1,0 +1,13 @@
+Source: kouembedded-systemprogramming-course
+Section: admin
+Priority: optional
+Maintainer: Taner Guven <tanerguven@gmail.com>
+Build-Depends: debhelper (>= 8.0.0)
+Standards-Version: 3.9.4
+Homepage: https://github.com/KOU-Embedded-System-Lab/course-packages
+
+Package: kouembedded-systemprogramming-course
+Architecture: all
+Depends: ${shlibs:Depends}, ${misc:Depends}, xterm, gksu, default-jre, openocd, gcc-arm-none-eabi, gdb-arm-none-eabi, aria2
+Description: System Programming course programs
+ System Programming course programs
