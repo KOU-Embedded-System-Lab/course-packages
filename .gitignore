@@ -11,3 +11,4 @@
 #/*/debian/files
 #/*/debian/*.log
 #/*/debian/*.substvars
+/tmp

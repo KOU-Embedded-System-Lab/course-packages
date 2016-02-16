@@ -1,19 +1,19 @@
 #!/bin/bash
 
 get_package_version() {
-	local VERSION=`cat $PACKAGE_NAME/debian/changelog | grep $PACKAGE_NAME | head -n 1 | awk {'print $2'}`
+	local NAME=$1
+	local VERSION=`cat $NAME/debian/changelog | grep $PACKAGE_NAME | head -n 1 | awk {'print $2'}`
 	local VERSION=${VERSION:1:-1}
 	echo $VERSION
 }
 
 build() {
-	PACKAGE_NAME=$1
+	local PACKAGE_NAME=$1
 	[ -d "$PACKAGE_NAME" ] || print_usage_exit
 
-	VERSION=`get_package_version`
+	local VERSION=`get_package_version $PACKAGE_NAME`
 
 	mkdir tmp/
-
 	echo "copy $PACKAGE_NAME -> tmp/$PACKAGE_NAME"
 	cp -rf ${PACKAGE_NAME} tmp/${PACKAGE_NAME}
 
@@ -34,14 +34,14 @@ build() {
 }
 
 upload-ppa() {
-	PACKAGE_NAME=$1
-	DEBSIGN_KEYID=$2
-	DPUT_HOST=$3
+	local PACKAGE_NAME=$1
+	local DEBSIGN_KEYID=$2
+	local DPUT_HOST=$3
 	[ -d "$PACKAGE_NAME" ] || print_usage_exit
 	[ "$DEBSIGN_KEYID" != "" ] || print_usage_exit
 	[ "$DPUT_HOST" != "" ] || print_usage_exit
 
-	VERSION=`get_package_version`
+	local VERSION=`get_package_version $PACKAGE_NAME`
 
 	if [ ! -f tmp/${PACKAGE_NAME}_${VERSION}_source.changes ]; then
 		echo "build first"
