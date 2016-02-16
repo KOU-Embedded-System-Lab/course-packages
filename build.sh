@@ -2,7 +2,7 @@
 
 get_package_version() {
 	local NAME=$1
-	local VERSION=`cat $NAME/debian/changelog | grep $PACKAGE_NAME | head -n 1 | awk {'print $2'}`
+	local VERSION=`cat $NAME/debian/changelog | grep $NAME | head -n 1 | awk {'print $2'}`
 	local VERSION=${VERSION:1:-1}
 	echo $VERSION
 }
