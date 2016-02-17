@@ -1,3 +1,11 @@
+kouembedded-packageinstaller (1.4) trusty; urgency=medium
+
+  * - isletim sisteminde ayar guncellemesi icin script eklendi
+  * - program calisirken tekrar acilmasi engellendi
+  * - sistem bilgileri eklendi
+
+ -- taner <taner@debian>  Wed, 17 Feb 2016 20:08:46 +0200
+
 kouembedded-packageinstaller (1.3) trusty; urgency=medium
 
   * gdb-arm-none-eabi kurulum sorununu gidermek icin --force-overwrite eklendi
