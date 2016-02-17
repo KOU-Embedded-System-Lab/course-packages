@@ -1,3 +1,9 @@
+kouembedded-systemprogramming-course (1.1) trusty; urgency=medium
+
+  * eclipse kurulum scriptinde duzenlemeler
+
+ -- taner <taner@debian>  Wed, 17 Feb 2016 02:56:35 +0200
+
 kouembedded-systemprogramming-course (1.0) trusty; urgency=low
 
   * Initial release
