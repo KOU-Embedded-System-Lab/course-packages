@@ -13,6 +13,7 @@ build() {
 
 	local VERSION=`get_package_version $PACKAGE_NAME`
 
+	rm -rf tmp/
 	mkdir tmp/
 	echo "copy $PACKAGE_NAME -> tmp/$PACKAGE_NAME"
 	cp -rf ${PACKAGE_NAME} tmp/${PACKAGE_NAME}
