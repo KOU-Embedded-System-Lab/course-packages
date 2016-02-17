@@ -1,3 +1,9 @@
+kouembedded-packageinstaller (1.5) trusty; urgency=medium
+
+  * sistem guncellemeye "apt-get install -f" eklendi
+
+ -- Taner Guven <tanerguven@gmail.com>  Wed, 17 Feb 2016 22:03:25 +0200
+
 kouembedded-packageinstaller (1.4) trusty; urgency=medium
 
   * - isletim sisteminde ayar guncellemesi icin script eklendi

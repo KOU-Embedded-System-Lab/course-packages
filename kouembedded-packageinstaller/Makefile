@@ -12,7 +12,7 @@ install: EmbeddedKOU-packageinstaller
 EmbeddedKOU-packageinstaller:
 	mkdir -p $(INSTALL_LOCATION)/bin
 
-	cp main.py $(INSTALL_LOCATION)/bin/kouembedded-packageinstaller
+	cp kouembedded-packageinstaller.py $(INSTALL_LOCATION)/bin/kouembedded-packageinstaller
 	chmod 755 $(INSTALL_LOCATION)/bin/kouembedded-packageinstaller
 
 	cp update-kouembedded-xubuntu.py $(INSTALL_LOCATION)/bin/update-kouembedded-xubuntu

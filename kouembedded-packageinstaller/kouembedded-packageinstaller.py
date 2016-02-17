@@ -83,7 +83,7 @@ def configure(install_package_list, remove_package_list):
 
 
 def system_update():
-    cmd = "xterm -e bash -c 'apt-get -y update && apt-get -y dist-upgrade && update-kouembedded-xubuntu ; %s'" % COMPLETION_MESSAGE
+    cmd = "xterm -e bash -c 'apt-get -y update && apt-get install -f && apt-get -y dist-upgrade && update-kouembedded-xubuntu ; %s'" % COMPLETION_MESSAGE
     print cmd
     run("gksudo -- %s" % cmd)
     restart_this_process()
@@ -185,13 +185,13 @@ def main():
     try:
         fcntl.lockf(fp, fcntl.LOCK_EX | fcntl.LOCK_NB)
     except IOError:
-        tkMessageBox.showwarning("HATA", "Bu program veya baska bir paket yoneticisi calisiyor.\n\nDiger programin kapanmasini bekleyin.\n")
+        tkMessageBox.showwarning("HATA", "Bu program veya baska bir paket yoneticisi calisiyor.\n\nDiger program kapandiktan sonra tekrar deneyin.\n")
         exit(1)
 
     try:
         APT_CACHE = apt.Cache()
     except:
-        tkMessageBox.showwarning("HATA", "Baska bir paket yoneticisi calisiyor.\n\nDiger programin kapanmasini bekleyin.\n")
+        tkMessageBox.showwarning("HATA", "Baska bir paket yoneticisi calisiyor.\n\nDiger program kapandiktan sonra tekrar deneyin.\n")
         exit(1)
 
     try:
