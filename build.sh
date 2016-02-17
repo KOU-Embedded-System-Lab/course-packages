@@ -22,7 +22,9 @@ build() {
 
 	cd tmp/
 	echo "creating tmp/$PACKAGE_NAME-$VERSION.orig.tar.gz"
+	mv ${PACKAGE_NAME}/debian ${PACKAGE_NAME}_debian_$$
 	tar czf ${PACKAGE_NAME}_${VERSION}.orig.tar.gz ${PACKAGE_NAME}
+	mv ${PACKAGE_NAME}_debian_$$ ${PACKAGE_NAME}/debian
 	echo
 
 	cd ${PACKAGE_NAME}/

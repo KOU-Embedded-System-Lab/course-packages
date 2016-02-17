@@ -1,3 +1,9 @@
+kouembedded-programming-course (1.2) trusty; urgency=medium
+
+  * debian klasoru olmadan paket olusturuluyor
+
+ -- taner <taner@debian>  Wed, 17 Feb 2016 04:36:37 +0200
+
 kouembedded-programming-course (1.1) trusty; urgency=medium
 
   * version update
