@@ -8,6 +8,6 @@ Homepage: https://github.com/KOU-Embedded-System-Lab/course-packages
 
 Package: kouembedded-systemprogramming-course
 Architecture: all
-Depends: ${shlibs:Depends}, ${misc:Depends}, xterm, gksu, default-jre, openocd, gcc-arm-none-eabi, gdb-arm-none-eabi, aria2
+Depends: ${shlibs:Depends}, ${misc:Depends}, xterm, gksu, default-jre, openocd, gcc-arm-none-eabi, gdb-arm-none-eabi, aria2, gtkterm
 Description: System Programming course programs
  System Programming course programs
