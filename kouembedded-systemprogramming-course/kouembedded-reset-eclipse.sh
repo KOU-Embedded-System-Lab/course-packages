@@ -31,10 +31,13 @@ clean-config() {
 
 install-config() {
 
-	if [ ! -f $USER_DIR/kouembedded-systemprogramming-conf-$VERSION.tar.xz ]; then
+	if [ ! -f $USER_DIR/kouembedded-systemprogramming-conf-$VERSION.tar.xz ] || [ -f $USER_DIR/config_download_not_completed ]; then
+		touch $USER_DIR/config_download_not_completed
 		rm -rf $USER_DIR/kouembedded-systemprogramming-conf-*.tar.xz
 		echo "Sistem Programlama dersi icin Eclipse ayarlari indiriliyor"
-		aria2c -d $USER_DIR -x4 https://github.com/KOU-Embedded-System-Lab/course-packages/releases/download/$VERSION/kouembedded-systemprogramming-conf-$VERSION.tar.xz
+		aria2c -d $USER_DIR https://github.com/KOU-Embedded-System-Lab/course-packages/releases/download/$VERSION/kouembedded-systemprogramming-conf-$VERSION.tar.xz
+		[ "$?" == "0" ] || exit_error
+		rm -f $USER_DIR/config_download_not_completed
 	fi
 
 	mkdir -p $TMP_DIR
@@ -52,7 +55,7 @@ clean-all() {
 	clean-config
 	rm -rf $SYSTEM_DIR
 
-	if [ "$1" == "full" ] || [ -f $USER_DIR/download_not_completed ]; then
+	if [ "$1" == "full" ] || [ -f $USER_DIR/eclipse_download_not_completed ]; then
 		echo "Eski kurulum tamamen siliniyor"
 		rm -rf $USER_DIR
 	fi
@@ -63,11 +66,12 @@ install-all() {
 	mkdir -p $SYSTEM_DIR
 	mkdir -p $USER_DIR
 
-	if [ ! -f $USER_DIR/eclipse-luna.tar.xz ]; then
+	if [ ! -f $USER_DIR/eclipse-luna.tar.xz ] || [ -f $USER_DIR/eclipse_download_not_completed ]; then
 		echo "Eclipse indiriliyor"
-		touch $USER_DIR/download_not_completed
-		aria2c -d $USER_DIR -o eclipse-luna.tar.xz -x4 http://ftp.fau.de/eclipse/technology/epp/downloads/release/luna/SR2/eclipse-cpp-luna-SR2-linux-gtk.tar.gz
-		rm -f $USER_DIR/download_not_completed
+		touch $USER_DIR/eclipse_download_not_completed
+		aria2c -d $USER_DIR -o eclipse-luna.tar.xz http://ftp.fau.de/eclipse/technology/epp/downloads/release/luna/SR2/eclipse-cpp-luna-SR2-linux-gtk.tar.gz
+		[ "$?" == "0" ] || exit_error
+		rm -f $USER_DIR/eclipse_download_not_completed
 	else
 		echo "Daha onceden indirilmis kurulum dosyasi bulundu"
 	fi
@@ -89,7 +93,7 @@ echo
 
 if [ `id -u` == 0 ]; then
 	echo ">> Eclipse Sistem Kurulumu"
-	clean-all
+	clean-all $1
 	install-all
 else
 	echo ">> Eclipse Ayar Sifirlama"

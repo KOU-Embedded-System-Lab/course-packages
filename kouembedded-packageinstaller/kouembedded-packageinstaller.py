@@ -103,7 +103,7 @@ def system_info():
     if len(installed_packages) > 0:
         info += "\n# Installed Packages #\n"
         for package_title, package_name in PROGRAMS:
-            if APT_CACHE[package_name].is_installed:
+            if package_name in APT_CACHE and APT_CACHE[package_name].is_installed:
                 info += "%s : %s\n" % (package_name, APT_CACHE[package_name].installed.version)
 
     f = open(INFO_FILE, "w").write(info)
@@ -139,7 +139,10 @@ class GUI(tk.Tk):
 
     def systemInfoButton_clicked(self):
         self.withdraw()
-        system_info()
+        try:
+            system_info()
+        except:
+            pass
         self.deiconify()
 
     def updateButton_clicked(self):

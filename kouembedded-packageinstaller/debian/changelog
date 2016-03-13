@@ -1,3 +1,9 @@
+kouembedded-packageinstaller (1.6) trusty; urgency=medium
+
+  * empty APT_CACHE system info bug fix
+
+ -- taner <taner@debian>  Sun, 21 Feb 2016 17:14:23 +0200
+
 kouembedded-packageinstaller (1.5) trusty; urgency=medium
 
   * sistem guncellemeye "apt-get install -f" eklendi
